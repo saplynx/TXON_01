@@ -12,8 +12,8 @@ class ConverterCard extends StatefulWidget {
 }
 
 class _ConverterCardState extends State<ConverterCard> {
-  String dropDown1Value = 'm';
-  String dropDown2Value = 'cm';
+  int dropDown1Value = 0;
+  int dropDown2Value = 1;
 
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
@@ -22,19 +22,23 @@ class _ConverterCardState extends State<ConverterCard> {
   List<DropdownMenuItem> lengthUnits = [
     DropdownMenuItem(
       child: Text('meter'),
-      value: 'm',
+      value: 0,
     ),
     DropdownMenuItem(
       child: Text('cm'),
-      value: 'cm',
+      value: 1,
     ),
     DropdownMenuItem(
       child: Text('km'),
-      value: 'km',
+      value: 2,
     ),
     DropdownMenuItem(
       child: Text('ft'),
-      value: 'ft',
+      value: 3,
+    ),
+    DropdownMenuItem(
+      child: Text('in'),
+      value: 4,
     ),
   ];
 
