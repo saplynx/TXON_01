@@ -3,6 +3,7 @@ import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/length_converter_card.dart';
 import 'package:unit_converter/mass_converter_card.dart';
 import 'package:unit_converter/temperature_converter_card.dart';
+import 'package:unit_converter/speed_converter_card.dart';
 
 void main() {
   runApp(UnitConverter());
@@ -27,6 +28,7 @@ class _UnitConverterState extends State<UnitConverter> {
               LengthConverterCard(),
               TemperatureConverterCard(),
               MassConverterCard(),
+              SpeedConverterCard(),
             ],
           ),
         ),

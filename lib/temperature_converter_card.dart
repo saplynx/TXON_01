@@ -18,7 +18,7 @@ class _TemperatureConverterCardState extends State<TemperatureConverterCard> {
   TextEditingController t2 = TextEditingController();
 
 
-  List<DropdownMenuItem> lengthUnits = [
+  List<DropdownMenuItem> temperatureUnits = [
     DropdownMenuItem(
       child: Text('Celsius'),
       value: 0,
@@ -65,7 +65,7 @@ class _TemperatureConverterCardState extends State<TemperatureConverterCard> {
                     ),
                   ),
                   DropdownButton(
-                    items: lengthUnits,
+                    items: temperatureUnits,
                     value: dropDown1Value,
                     onChanged: (value) {
                       setState(() {
@@ -91,7 +91,7 @@ class _TemperatureConverterCardState extends State<TemperatureConverterCard> {
                     ),
                   ),
                   DropdownButton(
-                    items: lengthUnits,
+                    items: temperatureUnits,
                     value: dropDown2Value,
                     onChanged: (value) {
                       setState(() {

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/converter.dart';
 
-class MassConverterCard extends StatefulWidget {
-  const MassConverterCard({Key? key}) : super(key: key);
+class SpeedConverterCard extends StatefulWidget {
+  const SpeedConverterCard({Key? key}) : super(key: key);
 
   @override
-  State<MassConverterCard> createState() => _MassConverterCardState();
+  State<SpeedConverterCard> createState() => _SpeedConverterCardState();
 }
 
-class _MassConverterCardState extends State<MassConverterCard> {
+class _SpeedConverterCardState extends State<SpeedConverterCard> {
 
   int dropDown1Value = 0;
   int dropDown2Value = 1;
@@ -17,26 +17,23 @@ class _MassConverterCardState extends State<MassConverterCard> {
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
 
-  List<DropdownMenuItem> massUnits = [
+
+  List<DropdownMenuItem> speedUnits = [
     DropdownMenuItem(
-      child: Text('kg'),
+      child: Text('km/h'),
       value: 0,
     ),
     DropdownMenuItem(
-      child: Text('g'),
+      child: Text('m/s'),
       value: 1,
     ),
     DropdownMenuItem(
-      child: Text('mg'),
+      child: Text('mph'),
       value: 2,
     ),
     DropdownMenuItem(
-      child: Text('lb'),
+      child: Text('fps'),
       value: 3,
-    ),
-    DropdownMenuItem(
-      child: Text('oz'),
-      value: 4,
     ),
   ];
 
@@ -52,7 +49,7 @@ class _MassConverterCardState extends State<MassConverterCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Mass', style: cardTitle),
+              Text('Speed', style: cardTitle),
               SizedBox(
                 height: 10.0,
               ),
@@ -66,18 +63,18 @@ class _MassConverterCardState extends State<MassConverterCard> {
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
                         setState(() {
-                          t2.text = massConverter(dropDown1Value, dropDown2Value, input)!;
+                          t2.text = speedConverter(dropDown1Value, dropDown2Value, input)!;
                         });
                       },
                     ),
                   ),
                   DropdownButton(
-                    items: massUnits,
+                    items: speedUnits,
                     value: dropDown1Value,
                     onChanged: (value) {
                       setState(() {
                         dropDown1Value = value;
-                        t2.text = massConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = tempratureConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),
@@ -93,17 +90,17 @@ class _MassConverterCardState extends State<MassConverterCard> {
                       controller: t2,
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
-                        t1.text = massConverter(dropDown2Value, dropDown1Value, input)!;
+                        t1.text = speedConverter(dropDown2Value, dropDown1Value, input)!;
                       },
                     ),
                   ),
                   DropdownButton(
-                    items: massUnits,
+                    items: speedUnits,
                     value: dropDown2Value,
                     onChanged: (value) {
                       setState(() {
                         dropDown2Value = value;
-                        t2.text = massConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = tempratureConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),

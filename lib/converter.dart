@@ -104,3 +104,22 @@ String? massConverter(int u1, int u2, String m) {
 
   return (c[u1][u2] * n).toString();
 }
+
+String? speedConverter(int u1, int u2, String s) {
+  double v = double.parse(s);
+
+  //        km/h    m/s     mph     fps
+  //  km/h  1       0.2777  0.6213  0.9113
+  //  m/s   3.6     1       2.2369  3.2808
+  //  mph   1.6093   0.4470  1       1.4666
+  //  fps   1.09728 0.3048  0.6818  1
+
+  List<List<double>> c = [
+    [1.0, 0.2777, 0.6213, 0.9113],
+    [3.6, 1.0, 2.2369, 3.2808],
+    [1.6093, 0.4470, 1.0, 1.4666],
+    [1.09728, 0.3048, 0.6818, 1.0]
+  ];
+
+  return (c[u1][u2] * v).toString();
+}
