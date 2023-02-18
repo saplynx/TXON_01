@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/converter.dart';
 
-class ConverterCard extends StatefulWidget {
-  const ConverterCard({
+class LengthConverterCard extends StatefulWidget {
+  const LengthConverterCard({
     super.key,
   });
 
   @override
-  State<ConverterCard> createState() => _ConverterCardState();
+  State<LengthConverterCard> createState() => _LengthConverterCardState();
 }
 
-class _ConverterCardState extends State<ConverterCard> {
+class _LengthConverterCardState extends State<LengthConverterCard> {
   int dropDown1Value = 0;
   int dropDown2Value = 1;
 
