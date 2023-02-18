@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/length_converter_card.dart';
+import 'package:unit_converter/mass_converter_card.dart';
+import 'package:unit_converter/temperature_converter_card.dart';
 
 void main() {
   runApp(UnitConverter());
@@ -19,10 +21,14 @@ class _UnitConverterState extends State<UnitConverter> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('Unit Converter')),
-        body: Column(
-          children: [
-            LengthConverterCard()
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              LengthConverterCard(),
+              TemperatureConverterCard(),
+              MassConverterCard(),
+            ],
+          ),
         ),
       ),
     );

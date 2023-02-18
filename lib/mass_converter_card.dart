@@ -2,42 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/converter.dart';
 
-class LengthConverterCard extends StatefulWidget {
-  const LengthConverterCard({
-    super.key,
-  });
+class MassConverterCard extends StatefulWidget {
+  const MassConverterCard({Key? key}) : super(key: key);
 
   @override
-  State<LengthConverterCard> createState() => _LengthConverterCardState();
+  State<MassConverterCard> createState() => _MassConverterCardState();
 }
 
-class _LengthConverterCardState extends State<LengthConverterCard> {
+class _MassConverterCardState extends State<MassConverterCard> {
+
   int dropDown1Value = 0;
   int dropDown2Value = 1;
 
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
 
-
   List<DropdownMenuItem> lengthUnits = [
     DropdownMenuItem(
-      child: Text('meter'),
+      child: Text('kg'),
       value: 0,
     ),
     DropdownMenuItem(
-      child: Text('cm'),
+      child: Text('g'),
       value: 1,
     ),
     DropdownMenuItem(
-      child: Text('km'),
+      child: Text('mg'),
       value: 2,
     ),
     DropdownMenuItem(
-      child: Text('ft'),
+      child: Text('lb'),
       value: 3,
     ),
     DropdownMenuItem(
-      child: Text('in'),
+      child: Text('oz'),
       value: 4,
     ),
   ];
@@ -54,7 +52,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Length', style: cardTitle),
+              Text('Mass', style: cardTitle),
               SizedBox(
                 height: 10.0,
               ),
@@ -68,7 +66,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
                         setState(() {
-                          t2.text = lengthConverter(dropDown1Value, dropDown2Value, input)!;
+                          t2.text = massConverter(dropDown1Value, dropDown2Value, input)!;
                         });
                       },
                     ),
@@ -79,7 +77,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                     onChanged: (value) {
                       setState(() {
                         dropDown1Value = value;
-                        t2.text = lengthConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = massConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),
@@ -95,7 +93,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                       controller: t2,
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
-                        t1.text = lengthConverter(dropDown2Value, dropDown1Value, input)!;
+                        t1.text = massConverter(dropDown2Value, dropDown1Value, input)!;
                       },
                     ),
                   ),
@@ -105,7 +103,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                     onChanged: (value) {
                       setState(() {
                         dropDown2Value = value;
-                        t2.text = lengthConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = massConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),

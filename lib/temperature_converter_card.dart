@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:unit_converter/consts.dart';
 import 'package:unit_converter/converter.dart';
 
-class LengthConverterCard extends StatefulWidget {
-  const LengthConverterCard({
-    super.key,
-  });
+class TemperatureConverterCard extends StatefulWidget {
+  const TemperatureConverterCard({Key? key}) : super(key: key);
 
   @override
-  State<LengthConverterCard> createState() => _LengthConverterCardState();
+  State<TemperatureConverterCard> createState() => _TemperatureConverterCardState();
 }
 
-class _LengthConverterCardState extends State<LengthConverterCard> {
+class _TemperatureConverterCardState extends State<TemperatureConverterCard> {
+
   int dropDown1Value = 0;
   int dropDown2Value = 1;
 
@@ -21,24 +20,16 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
 
   List<DropdownMenuItem> lengthUnits = [
     DropdownMenuItem(
-      child: Text('meter'),
+      child: Text('Celsius'),
       value: 0,
     ),
     DropdownMenuItem(
-      child: Text('cm'),
+      child: Text('Fahrenheit'),
       value: 1,
     ),
     DropdownMenuItem(
-      child: Text('km'),
+      child: Text('Kelvin'),
       value: 2,
-    ),
-    DropdownMenuItem(
-      child: Text('ft'),
-      value: 3,
-    ),
-    DropdownMenuItem(
-      child: Text('in'),
-      value: 4,
     ),
   ];
 
@@ -54,7 +45,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Length', style: cardTitle),
+              Text('Temperature', style: cardTitle),
               SizedBox(
                 height: 10.0,
               ),
@@ -68,7 +59,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
                         setState(() {
-                          t2.text = lengthConverter(dropDown1Value, dropDown2Value, input)!;
+                          t2.text = tempratureConverter(dropDown1Value, dropDown2Value, input)!;
                         });
                       },
                     ),
@@ -79,7 +70,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                     onChanged: (value) {
                       setState(() {
                         dropDown1Value = value;
-                        t2.text = lengthConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = tempratureConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),
@@ -95,7 +86,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                       controller: t2,
                       keyboardType: TextInputType.number,
                       onChanged: (String input) {
-                        t1.text = lengthConverter(dropDown2Value, dropDown1Value, input)!;
+                        t1.text = tempratureConverter(dropDown2Value, dropDown1Value, input)!;
                       },
                     ),
                   ),
@@ -105,7 +96,7 @@ class _LengthConverterCardState extends State<LengthConverterCard> {
                     onChanged: (value) {
                       setState(() {
                         dropDown2Value = value;
-                        t2.text = lengthConverter(dropDown1Value, dropDown2Value, t1.text)!;
+                        t2.text = tempratureConverter(dropDown1Value, dropDown2Value, t1.text)!;
                       });
                     },
                   ),
